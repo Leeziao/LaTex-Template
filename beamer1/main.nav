@@ -1,0 +1,137 @@
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {1}{1}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {2}{2}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {1}{2}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {1}{2}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {1}{使用已有主题的方法}{3}{使用已有主题的方法}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {3}{3}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {3}{3}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{1}{1}{4}{主题样式颜色}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {1}{1}{1}{4/4}{主题样式颜色}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {4}{4}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {3}{4}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {4}{4}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {2}{公式及编号}{5}{公式及编号}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{0}{1}{5/5}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {5}{5}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {5}{5}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{1}{6}{带编号的公式}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{1}{1}{6/6}{带编号的公式}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {6}{6}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {6}{6}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{2}{7}{不带编号的公式}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{2}{1}{7/7}{不带编号的公式}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {7}{7}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {7}{7}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{2}{3}{8}{行内公式}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {2}{3}{1}{8/8}{行内公式}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {8}{8}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {5}{8}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {8}{8}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {3}{列表环境}{9}{列表环境}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {3}{0}{1}{9/9}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {9}{9}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {9}{9}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{3}{1}{10}{无序列表和逐条展示的功能}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {3}{1}{1}{10/11}{无序列表和逐条展示的功能}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {10}{11}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {10}{11}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{3}{2}{12}{有序列表}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {3}{2}{1}{12/13}{有序列表}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {12}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {9}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {12}{13}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {4}{块环境}{14}{块环境}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {4}{0}{1}{14/14}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {14}{14}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {14}{14}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionentry {0}{4}{1}{15}{放某些特定的句子和公式}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {4}{1}{1}{15/15}{放某些特定的句子和公式}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {15}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {14}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {15}{15}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {5}{代码环境}{16}{代码环境}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {5}{0}{1}{16/16}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {16}{16}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {5}{0}{2}{17/17}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {17}{17}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@sectionpages {16}{17}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@subsectionpages {16}{17}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\sectionentry {6}{致谢}{18}{致谢}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {6}{0}{1}{18/18}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {18}{18}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\slideentry {6}{0}{2}{19/19}{}{0}}
+\defcounter {refsection}{0}\relax 
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@partpages {1}{19}}
+\headcommand {\beamer@subsectionpages {18}{19}}
+\headcommand {\beamer@sectionpages {18}{19}}
+\headcommand {\beamer@documentpages {19}}
+\headcommand {\gdef \inserttotalframenumber {17}}

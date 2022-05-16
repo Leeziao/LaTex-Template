@@ -1,0 +1,195 @@
+\documentclass[aspectratio=169, 10pt, utf8, mathserif]{beamer}
+%导言区
+\usepackage{ctex}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{ulem} %解决下划线换行紊乱
+\usepackage{caption} %添加图、表的标题
+\usepackage{subfigure}
+\usepackage{theorem}
+\usepackage[backend=bibtex,sorting=none]{biblatex} %不列出所有作者
+%\usepackage[backend=bibtex,sorting=none,maxnames=9,minnames=3]{biblatex} %列出所有作者，具体选择列不列可以由其前的“%”来决定
+\addbibresource{ref.bib} %BibTeX数据文件及位置
+\setbeamerfont{footnote}{size=\tiny} %设置脚注引用文献的字体大小
+%\setbeamertemplate{bibliography item}[text] %设置参考文献图标样式数字标号
+\usepackage{appendix} %增加附录
+\usepackage{multicol} %分栏
+\usepackage{syntonly} %只编译文件是否成功，省时省力
+%\syntaxonly %不注释代表只编译是否成功
+%\usepackage[marginal]{footmisc} %首页添加脚注无缩进
+%\renewcommand{\thefootnote}{} %首页添加脚注无编号
+\usepackage{enumerate}
+\usepackage{listings} %代码包
+\usepackage{xcolor} %代码高亮包
+\lstset{
+ language=Matlab, %代码语言使用的是matlab
+ %frame=shadowbox, %把代码用带有阴影的框圈起来
+ %rulesepcolor=\color{red!20!green!20!blue!20}, %代码块边框为淡青色
+ keywordstyle=\color{blue}\bfseries, %代码关键字的颜色为蓝色，粗体
+ commentstyle=\color{orange}\ttfamily, %设置代码注释的颜色,原字体样式\textit
+ backgroundcolor=\color{darkgray!6}, %背景色
+ showstringspaces=false, %不显示代码字符串中间的空格标记
+ numbers=left, %显示行号
+ numberstyle=\tiny, %行号字体
+ basicstyle=\ttfamily,
+ stringstyle=\ttfamily, %代码字符串的特殊格式
+ breaklines=true, %过长的代码自动换行
+ extendedchars=false,  %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+ escapebegin=\begin{CJK*}{GBK}{hei},escapeend=\end{CJK*} %防止中文报错
+ texcl=true,
+ morekeywords={classdef,function,global,parfor,persistent,spmd,plot}} %设置更多关键词
+
+%使用的主题样式和主题色
+\usetheme{Antibes}
+\usecolortheme{beaver}
+\usefonttheme{serif} %已有的字体default professionalfonts serif structurebold structureitalicserif structuresmallcapsserif
+
+% 设置用acrobat打开就会全屏显示
+\hypersetup{pdfpagemode=FullScreen}
+
+% 设置logo
+% \pgfdeclareimage[height=0.5cm]{university-logo}{logo-name} %需提前将logo文件放到`.tex`文件中。
+% \logo{\pgfuseimage{university-logo}}
+
+%-------------开始-------------------
+\begin{document}
+
+%每个章节都有小目录
+\AtBeginSection[]
+{
+ \begin{frame}
+ \frametitle{章节目录}
+ \begin{multicols}{2}
+  \tableofcontents[currentsection]
+ \end{multicols}
+ \end{frame}
+}
+
+\title{Beamer 模板}
+\subtitle{利用已有主题实现自己的主题}
+\author[姓名]{李子奥 \\ \zihao{6}{\href{mailto:183xxxxxx0@163.com}{leeziao0331@gmail.com}}
+   \quad \\ \vspace{0.5cm} 导师姓名\quad\zihao{6}{导师信息}}
+\institute[学校地区，学校名称]
+{
+ 实验室名称 \\
+ 专业及方向
+}
+\date{\today}
+%显示封面页
+\begin{frame}
+    %\maketitle
+    \titlepage
+\end{frame}
+
+\begin{frame}
+ \frametitle{总目录}
+ \begin{multicols}{2}
+  \tableofcontents[hideallsubsections]
+ \end{multicols}
+ %\tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{使用已有主题的方法}
+\subsection{主题样式颜色}
+\begin{frame}
+ \frametitle{使用已有主题的方法}
+可以直接点击该链接\underline{\href{https://mpetroff.net/files/beamer-theme-matrix/}{已有的主题样式和主题颜色}}。横栏表示主题颜色，纵栏表示主题样式。
+
+将想套用的主题样式和颜色放到usetheme\{Szeged\}和usecolortheme\{beaver\}中即可。
+\end{frame}
+
+\section{公式及编号}
+\subsection{带编号的公式}
+\begin{frame}
+ \frametitle{带编号的公式}
+现在展示一个带编号的公式：
+ \begin{equation}
+ f(x) = \frac{\mathrm e^{2x}}{\sin x}
+ \end{equation}
+\end{frame}
+
+\subsection{不带编号的公式}
+\begin{frame}
+ \frametitle{不带编号的公式}
+ 另外再展示一个不带编号的公式。
+\[
+\mathrm e^{\mathrm i \pi} + 1 = 0 
+\]
+\end{frame}
+
+\subsection{行内公式}
+\begin{frame}
+ \frametitle{行内公式}
+ 以及一个行内公式$a^2 + b^2 = c^2$.
+\end{frame}
+
+\section{列表环境}
+\subsection{无序列表和逐条展示的功能}
+\begin{frame}
+ \frametitle{列表}
+这是无序列表的样式，及逐条展示的功能。
+ \begin{itemize}
+ \item 无序列表标号1
+ \pause
+ \item 无序列表标号2
+ \end{itemize}
+\end{frame}
+
+\subsection{有序列表}
+\begin{frame}
+ \frametitle{有序列表}
+这是有序列表的样式及一次性的逐条展示功能。
+ \begin{enumerate}[<+-|alert@+>]
+ \item 这是1
+ \item 这是2
+ \end{enumerate}
+\end{frame}
+
+\section{块环境}
+\subsection{放某些特定的句子和公式}
+\begin{frame}
+ \frametitle{块环境}
+ \begin{exampleblock}{Beamer介绍}
+ Beamer是\LaTeX 的一个文档类，主要用于学术报告幻灯片的制作，优点是跨平台性好，支持Windows，Mac等。导出的格式就是PDF。
+ \end{exampleblock}
+ \begin{alertblock}{不同样式的文本块}
+ \begin{equation}
+  \left \{
+  \begin{aligned}
+  f(x) &= 2x + b \\
+  g(x) &= x + 9
+  \end{aligned} 
+  \right.
+  \end{equation}
+ \end{alertblock}
+ \begin{block}{Beamer介绍}
+ \begin{equation}
+ \left \{
+ \begin{aligned}
+ f(x) &= 2x + b \\
+ g(x) &= x + 9
+ \end{aligned} 
+ \right.
+ \end{equation}
+ \end{block}
+
+\end{frame}
+
+
+\section{代码环境}
+\begin{frame}[fragile] %必须加[fragile]
+ \frametitle{MATLAB代码}  
+ \begin{lstlisting}[numbers=left, firstnumber=753]
+  % 绘制图形
+  x = 1 : 0.01 : 5;
+  y = sin(x);
+  plot(x, y)
+ \end{lstlisting}
+\end{frame}
+
+\section{致谢}
+\begin{frame}
+ \zihao{-4}\centering{坚持学习，不是为了输赢。}
+\end{frame}
+\end{document}
