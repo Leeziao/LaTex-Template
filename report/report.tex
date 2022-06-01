@@ -1,0 +1,76 @@
+% !Mode:: "TeX:UTF-8"
+%% 请使用 XeLaTeX 编译本文.
+ \documentclass[forprint]{report}
+%---------------------这里添加所需的package--------------------------------
+\usepackage{url}
+\usepackage{amsmath}
+
+%--------------------------------------------------------------------------
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+\begin{document}
+%-----------------------------------------------------------------------------
+
+\title{笔记} % 报告主题
+\author{李子奥} % 学生姓名
+\Csupervisor{xxx} % 指导教师姓名
+\CstudentNum{U201914629} % 学号
+\Cmajor{自动化1903} % 专业名称
+\Cschoolname{人工智能与自动化学院} % 学院名
+\date{\today} % 日期
+
+%-----------------------------------------------------------------------------
+
+\pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
+\maketitle
+\frontmatter
+\pagenumbering{Roman}              % 正文之前的页码用大写罗马字母编号.正文之前的页码隐藏，无需显示
+%-----------------------------------------------------------------------------
+%==========================把目录加入到书签==============================%%%%%%
+
+\tableofcontents
+\thispagestyle{empty}				%不显示罗马数字
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+
+\mainmatter %% 以下是正文
+%%%%%%%%%%%%%%%%%%%%%%%%%%%--------main matter-------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}%plain
+%\cfoot{\thepage{\zihao{5}\bf\usefonttimes}}
+%\renewcommand{\baselinestretch}{1.6}
+%\setlength{\baselineskip}{23pt}
+\baselineskip=23pt  % 正文行距为 23 磅
+
+%此处书写正文-------------------------------------------------------------------------------------
+\chapter{SVM}
+
+\section{SVM简介}
+
+支撑向量机（Support Vector Machine, SVM）是一种二分类模型\cite{r3}，它的基本模型是定义在特征空间上的间隔最大的线性分类器。它与感知机的区别在于 SVM 使分类平面与样本点距离的最大。间隔最大化的问题可形式化为一解凸二次规划的问题，也等价于正则化的合页损失函数的最小化问题。
+
+
+SVM 还可以利用核技巧，从而对非线性的数据进行分类。
+
+\section{Hard-margin SVM}
+
+将不同类别的样本点完全分到分类平面的两侧，但当有异常样本点出现的时候，硬间隔的 SVM 可能会将异常点作为支撑向量，导致分类平面不佳\cite{r1}...
+
+
+%此处结束正文-------------------------------------------------------------------------------------------------
+%%%============================================================================================================%%%
+
+%%%=== 参考文献 ========%%%
+\cleardoublepage\phantomsection
+\addcontentsline{toc}{chapter}{参考文献}
+%\bibliography{example}
+\renewcommand{\baselinestretch}{1.6}
+
+\begin{thebibliography}{00}
+
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+
+\end{thebibliography}
+
+\cleardoublepage
+\end{document}

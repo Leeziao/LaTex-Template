@@ -1,3 +1,3 @@
 # LaTeX-Template
 
-This is a private repository for all my LaTex Template, including thesis ones and beamer ones.
+This is a collection of my LaTex Templates.
