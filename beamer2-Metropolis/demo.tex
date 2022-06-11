@@ -1,0 +1,509 @@
+\documentclass[10pt,UTF8]{ctexbeamer} 
+%默认字体12pt，编码使用UTF8，使用中文
+
+\usetheme[progressbar=frametitle]{metropolis} 
+%使用metropolis这一beamer主题
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs} %书签
+\usepackage[scale=2]{ccicons} %typeset Creative Commons icons
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+\usepackage{hologo}
+
+\usepackage{amsmath, amsfonts, amssymb} %数学符号
+
+%语法高亮
+\usepackage{minted}
+\usepackage{listings}
+
+\usepackage{}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,      
+	urlcolor=red,
+	citecolor=cyan,
+}
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.eps,.ps,.jpg,.bmp,.png,.svg}
+%指定可以使用以上格式图像文件
+
+\usepackage{xspace} %断行命令
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{Metropolis} %标题
+\subtitle{一个优秀的beamer主题} %副标题
+\date{\today} %今天的日期
+% \date{} %指定日期
+\author{超级懒的小周} %作者
+\institute{texpage.com} %机构
+\titlegraphic{\hfill\includegraphics[height=2.5cm]{image/academic.png}} %插入logo
+
+%在每个section 前边单独插入当前章节高亮的目录页（当然最原始的目录页你还是需要手动录入的，不要想偷懒）
+%\AtBeginSection[]
+%{
+%	\begin{frame}
+%		\frametitle{当前章节}
+%		\tableofcontents[currentsection]
+%	\end{frame}
+%}
+
+\begin{document}
+
+\maketitle %目录生成
+
+\begin{frame}{目录}
+	%		Table of contents 目录/大纲页
+	%             自动实现对section的收集，并绘制成目录页
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents%[hideallsubsections]
+\end{frame}
+
+\section{What is beamer？}
+\begin{frame}[allowframebreaks]{What is beamer？}
+	Beamer 是一个用于创建演示文稿 LaTeX 的文档类。它同时支持\LaTeX + dvips、\hologo{pdfLaTeX}、\hologo{LuaLaTeX}以及\hologo{XeLaTeX}。它的名称取自德语词汇 Beamer（pseudo-anglicism），意思是影像演示。
+	
+	Beamer文档类并不是最早开发出的\LaTeX 演示文稿工具。2003年2月，Till Tantau为其博士论文答辩编写了beamer包，并于一个月之后发布在CTAN上。
+	
+	作为LaTeX的一个文档类，Beamer文档和\LaTeX 文档一样都是纯文本文件。且beamer兼容\LaTeX 常见的命令，和其他宏包的兼容性良好。
+	
+	当然也有支持Beamer语法的图形界面，如AUCTEX和LyX。
+	
+	Beamer也可以通过使用兼容包来支持其他LaTeX演示文稿宏包的语法，包括 Prosper和Foils。
+	
+	Beamer默认生成PDF文件用于演示，其动态效果依靠创建多页幻灯片实现。
+	
+	若要打印出每张幻灯片的最终效果用于分发给听众，需开启handout选项；想要在一张纸上打印多页幻灯片，需要用pgfpages宏包；也可以输出适合印刷在A4或者标准信纸上的文档效果。
+	
+	'frame'的标题将变为段落的标题，不再包括原有的外观主题，同时保证了原有章节结构不被破坏——这就可以方便的输出演讲的提纲。
+	
+	Beamer的一些功能是依赖于PGF的。
+	
+	以上介绍来自WiKipedia。\footnote{https://zh.wikipedia.org/wiki/Beamer\_(LaTeX)}
+	
+	关于如何自制一份beamer，请浏览\href{https://zhuanlan.zhihu.com/p/423443762}{用LaTeX创建一个Beamer}，可以关注专栏，及时获得推动与建议。
+\end{frame}
+
+\section[Intro]{Introduction}
+
+\begin{frame}[fragile]{Metropolis}
+	
+	\themename 主题是一款视觉噪音极小的 Beamer 主题，灵感来自 Benjamin Weiss 的 \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer} 主题。
+	
+	启用这一主题通过加载
+	
+	\begin{verbatim}    
+		\documentclass{beamer}
+		\usetheme{metropolis}
+	\end{verbatim}
+
+   请注意，您必须安装 Mozilla's \emph{Fira Sans} 字体和 XeTeX 才能享受这种美妙的排版。
+   
+   \small{在 R 中，您当然可以直接使用这个包，请参阅它的文档。}
+\end{frame}
+
+\begin{frame}[fragile]{Sections}
+  Sections 对同一主题的幻灯片进行分组
+
+  \begin{verbatim}    
+  	\section{Elements}
+  \end{verbatim}
+
+当然也有subsection对内容进行分节
+  \begin{verbatim}
+  	\subsection{subsection}
+  \end{verbatim}
+   这个 \themename 主题提供了一个很好的进度指示器 \ldots
+  
+\end{frame}
+
+\section{提供讲义}
+\begin{frame}[fragile]{如何提供一份讲义}
+	你可以给你的观众一张幻灯片的印刷版。只需使用handout选项创建文档的一个版本，就不会使用覆盖图：
+	\begin{verbatim}
+		\documentclass[handout]{beamer}
+		\usepackage{pgfpages}
+		\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm,landscape]
+	\end{verbatim}
+这将在A4纸上横向打印四张幻灯片。通过指定以下代码行，可以在纵向模式下获得更大的打印，每页两张幻灯片：
+	\begin{verbatim}
+		\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+	\end{verbatim}
+使用这一功能必须加载pgf宏包，并启用pgfpages选项，这是pgf宏包附带的一个实用宏包。
+\end{frame}
+
+\section{超链接}
+\begin{frame}[fragile]{在beamer中设置超链接}
+	可以这样
+\begin{minted}{latex}
+	\usepackage{hyperref}
+	\hypersetup{
+		colorlinks=true,
+		linkcolor=blue,%%修改此处为你想要的颜色
+		filecolor=blue,      
+		urlcolor=red,
+		citecolor=cyan,}
+\end{minted}
+也可以这样
+\begin{minted}{latex}
+	\usepackage[colorlinks,
+	linkcolor=blue,       %%修改此处为你想要的颜色
+	anchorcolor=blue,  
+	citecolor=blue,       
+	]{hyperref}
+\end{minted}
+更多请翻阅hyperref文档。
+\end{frame}
+
+\section{语法高亮}
+\begin{frame}[fragile]{语法高亮的选择}
+	\begin{itemize}
+		\item 使用verbatim抄录环境：\verb|\verb|
+		
+		\item 使用minted环境：\mint{latex}{\mint}
+		
+		\item 使用listings环境：
+		\begin{lstlisting}[language=c++]
+			#include <iostream>
+			int main()
+		\end{lstlisting}
+	\end{itemize}
+其中verbatim是可以直接用的，minted和listings都需要在导言区加载宏包才可以使用，而minted则需要使用Python库才可以使用。minted和listings功能都非常强大，使用者需要根据自己的实际情况来选择与使用。
+此处可以参考\href{https://www.latexstudio.net/archives/5900.html}{LaTeX之代码语法高亮}和\href{https://blog.csdn.net/xenonhu/article/details/88978672}{LaTeX中代码高亮宏包minted用法}
+\end{frame}
+\section{Title formats}
+
+\begin{frame}{Metropolis titleformats}
+	\themename 支持 4 种不同的标题格式:
+	\begin{itemize}
+		\item Regular
+		\item \textsc{Smallcaps}
+		\item \textsc{allsmallcaps}
+		\item ALLCAPS
+	\end{itemize}
+	它们可以为每种标题类型一次性(全局)设置，也可以单独设置。
+\end{frame}
+
+\subsection{Tricks}
+
+{
+    \metroset{titleformat frame=smallcaps}
+\begin{frame}{Small caps}
+	这一帧使用 \texttt{smallcaps} 标题样式.
+
+	\begin{alertblock}{潜在问题}
+		请注意，并非每种字体都支持小型大写字母。 例如，如果您使用 pdfTeX 和 Computer Modern Sans Serif 字体排版演示文稿，则小型大写字母中的每个文本都将使用 Computer Modern Serif 字体排版。
+	\end{alertblock}
+\end{frame}
+}
+
+{
+\metroset{titleformat frame=allsmallcaps}
+\begin{frame}{All small caps}
+	这一帧使用 \texttt{allsmallcaps} 标题样式.
+
+	\begin{alertblock}{潜在问题}
+		由于此标题格式也使用小型大写字母，因此您面临与使用 \texttt{smallcaps} 标题格式相同的问题。 此外，这种格式可能会导致一些其他问题。 如果您考虑使用它，请参阅文档。
+
+		根据经验：只能将其用于纯文本标题。
+	\end{alertblock}
+\end{frame}
+}
+
+{
+\metroset{titleformat frame=allcaps}
+\begin{frame}{All caps}
+	这一帧使用 \texttt{allcaps} 标题格式.
+
+	\begin{alertblock}{潜在问题}
+		这种标题格式不像 \texttt{allsmallcaps} 格式那样有问题，但基本上存在相同的缺陷。 因此，如果您想使用它，请查看文档。
+	\end{alertblock}
+\end{frame}
+}
+
+\section{Elements}
+
+\begin{frame}[fragile]{排版}
+      \begin{verbatim}
+      	The theme provides sensible defaults to
+\emph{emphasize} text, \alert{accent} parts
+or show \textbf{bold} results.
+\end{verbatim}
+
+  \begin{center}
+  	becomes
+  \end{center}
+
+  The theme provides sensible defaults to \emph{emphasize} text,
+  \alert{accent} parts or show \textbf{bold} results.
+\end{frame}
+
+\begin{frame}{字体功能测试}
+  \begin{itemize}
+    \item Regular
+    \item \textit{Italic}
+    \item \textsc{SmallCaps}
+    \item \textbf{Bold}
+    \item \textbf{\textit{Bold Italic}}
+    \item \textbf{\textsc{Bold SmallCaps}}
+    \item \texttt{Monospace}
+    \item \texttt{\textit{Monospace Italic}}
+    \item \texttt{\textbf{Monospace Bold}}
+    \item \texttt{\textbf{\textit{Monospace Bold Italic}}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{列表}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.33\textwidth}
+      Items
+      \begin{itemize}
+        \item Milk 
+        \item Eggs 
+        \item Potatos
+      \end{itemize}
+
+    \column{0.33\textwidth}
+      Enumerations
+      \begin{enumerate}
+        \item First, 
+        \item Second and 
+        \item Last.
+      \end{enumerate}
+
+    \column{0.33\textwidth}
+      Descriptions
+      \begin{description}
+        \item[PowerPoint] Meeh. 
+        \item[Beamer] Yeeeha.
+      \end{description}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{动态演示}
+  \begin{itemize}[<+- | alert@+>]
+    \item \alert<4>{This is\only<4>{ really} important}
+    \item Now this
+    \item And now this
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Figures}
+  \begin{figure}
+    \newcounter{density}
+    \setcounter{density}{20}
+    \begin{tikzpicture}
+      \def\couleur{alerted text.fg}
+      \path[coordinate] (0,0)  coordinate(A)
+                  ++( 90:5cm) coordinate(B)
+                  ++(0:5cm) coordinate(C)
+                  ++(-90:5cm) coordinate(D);
+      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
+      \foreach \x in {1,...,40}{%
+          \pgfmathsetcounter{density}{\thedensity+20}
+          \setcounter{density}{\thedensity}
+          \path[coordinate] coordinate(X) at (A){};
+          \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
+                              -- (C) coordinate[pos=.10](B)
+                              -- (D) coordinate[pos=.10](C)
+                              -- (X) coordinate[pos=.10](D);
+          \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
+      }
+    \end{tikzpicture}
+    \caption{Rotated square from
+    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tables}
+  \begin{table}
+    \caption{Largest cities in the world (source: Wikipedia)}
+    \begin{tabular}{lr}
+      \toprule
+      City & Population\\
+      \midrule
+      Mexico City & 20,116,842\\
+      Shanghai & 19,210,000\\
+      Peking & 15,796,450\\
+      Istanbul & 14,160,467\\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Blocks}
+  三种不同的块环境是预定义的，并且可以使用可选的背景颜色设置样式。
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{Default}
+        Block content.
+      \end{block}
+
+      \begin{alertblock}{Alert}
+        Block content.
+      \end{alertblock}
+
+      \begin{exampleblock}{Example}
+        Block content.
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+
+\section{\LaTeX{} Mathematical Symbols}
+\subsection{Greek and Hebrew letters}
+\begin{frame}[fragile]{Greek and Hebrew letters}
+	\begin{table}
+		\centering
+		\caption{Greek and Hebrew letters}
+		\begin{tabular}{cccc}
+		$\alpha$ \verb|\alpha| & $\beta$ \verb|\beta| & $\chi$ \verb|\chi| & $\delta$ \verb|\delta| \\
+		$\epsilon$ \verb|\epsilon| &
+		 $\eta$ \verb|\eta| & $\gamma$ \verb|\gamma| & $\iota$ \verb|\iota| \\
+		$\kappa$ \verb|\kappa| & $\lambda$ \verb|\lambda| &
+		  $\mu$ \verb|\mu| & $\nu$ \verb|\nu| \\
+		$o$ \verb|o| & $\omega$ \verb|\omega| & $\phi$ \verb|\phi| &
+		   $pi$ \verb|\pi| \\
+		$\psi$ \verb|\psi| & $\rho$ \verb|\rho| & $\sigma$ \verb|\sigma| & $\tau$ \verb|\tau| \\ 
+		$\theta$ \verb|\theta| & $\upsilon$ \verb|\upsilon| & $\xi$ \verb|\xi| & $\zeta$ \verb|\zeta| \\
+		$\digamma$ \verb|\digamma| & $\varepsilon$ \verb|\varepsilon| & $\varkappa$ \verb|\varkappa| & $\varphi$ \verb|\varphi| \\
+		$\varpi$ \verb|\varpi| & $\varrho$ \verb|\varrho| &
+		$\varsigma$ \verb|\varsigma| & $\vartheta$ \verb|\vartheta| \\
+		$\Gamma$ \verb|\Gamma| & $\Lambda$ \verb|\Lambda| & $\Omega$ \verb|\Omega| & $\Phi$\verb|\Phi| \\
+		$\Pi$ \verb|\Pi| & $\Psi$ \verb|\Psi| & $\Sigma$ \verb|\Sigma| & $\Upsilon$ \verb|\Upsilon| \\
+		$\Xi$ \verb|\Xi| & $\aleph$ \verb|\aleph| & $\beth$ \verb|\beth| & $\daleth$ \verb|\daleth| \\
+		$\gimel$ \verb|\gimel| & $\Delta$ \verb|\Delta|	& $\Theta$ \verb|\Theta| & \\
+	\end{tabular}
+	\end{table}
+\end{frame}
+
+\begin{frame}{Math}
+	\begin{equation}
+    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n 
+	\end{equation}
+	\begin{equation}
+    \hat{f}(\xi):=\int_{-\infty}^{+\infty}f(x)e^{-2\pi i x \xi}{\rm d}(x)
+	\end{equation}
+\end{frame}
+
+
+\begin{frame}{Line plots}
+  \begin{figure}
+    \begin{tikzpicture}
+      \begin{axis}[
+        mlineplot,
+        width=0.9\textwidth,
+        height=6cm,
+      ]
+
+        \addplot {sin(deg(x))};
+        \addplot+[samples=100] {sin(deg(2*x))};
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+\begin{frame}{Bar charts}
+  \begin{figure}
+    \begin{tikzpicture}
+      \begin{axis}[
+        mbarplot,
+        xlabel={Foo},
+        ylabel={Bar},
+        width=0.9\textwidth,
+        height=6cm,
+      ]
+
+      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
+      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
+      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
+
+      \legend{lorem, ipsum, dolor}
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+\begin{frame}{Quotes}
+  \begin{quote}
+    Veni, Vidi, Vici
+  \end{quote}
+\end{frame}
+
+{%
+\setbeamertemplate{frame footer}{My custom footer}
+\begin{frame}[fragile]{Frame footer}
+    \themename defines a custom beamer template to add a text to the footer. It can be set via
+    \begin{verbatim}\setbeamertemplate{frame footer}{My custom footer}\end{verbatim}
+\end{frame}
+}
+
+\begin{frame}{References}
+  Some references to showcase [allowframebreaks] \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Summary}
+
+  Get the source of this theme and the demo presentation from
+
+  \begin{center}\url{github.com/matze/mtheme}\end{center}
+
+  The theme \emph{itself} is licensed under a
+  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+  Attribution-ShareAlike 4.0 International License}.
+
+  \begin{center}\ccbysa\end{center}
+
+\end{frame}
+
+{\setbeamercolor{palette primary}{fg=black, bg=yellow}
+\begin{frame}[standout]
+  Questions?
+\end{frame}
+}
+
+\appendix
+
+\begin{frame}[fragile]{Backup slides}
+  Sometimes, it is useful to add slides at the end of your presentation to
+  refer to during audience questions.
+
+  The best way to do this is to include the \verb|appendixnumberbeamer|
+  package in your preamble and call \verb|\appendix| before your backup slides.
+
+  \themename will automatically turn off slide numbering and progress bars for
+  slides in the appendix.
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+
+  \bibliography{demo}
+  \bibliographystyle{abbrv}
+  
+
+\end{frame}
+
+\end{document}
