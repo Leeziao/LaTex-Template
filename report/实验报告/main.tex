@@ -1,0 +1,112 @@
+\documentclass[onecolumn,a4paper]{article}
+
+\input{style/ch_xelatex.tex}
+\input{style/scala.tex}
+
+\lstset{frame=, basicstyle={\footnotesize\ttfamily}}
+
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+
+\graphicspath{ {images/} }
+\usepackage{ctex}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{listings}
+\lstset{
+ columns=fixed,
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,                              % 不显示字符串中的空格
+ language={[x86masm]Assembler},                                        % 设置语言
+}
+%-----------------------------------------BEGIN DOC----------------------------------------
+
+\begin{document}
+% \renewcommand{\contentsname}{目\ 录}
+% \renewcommand{\appendixname}{附录}
+% \renewcommand{\appendixpagename}{附录}
+% \renewcommand{\refname}{参考文献}
+% \renewcommand{\figurename}{图}
+% \renewcommand{\tablename}{表}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+
+\begin{titlepage}			%makes a title page. Remember to change the author, CID, username and group number to what is appropriate for you!
+	\centering
+	{\scshape\LARGE 华中科技大学\par}
+	{\scshape \LARGE 人工智能与自动化学院\par}
+	\vspace{1cm}
+	\hrule height 2pt \vspace{1mm}\hrule height 1pt \vspace{0.4cm}
+  {\huge\bfseries 微机原理实验n：\par}
+  \vspace{0.4cm}\hrule height 1pt \vspace{1mm}\hrule height 2pt
+	\vspace{1cm}
+	{\Large\itshape 彭杨哲\par}		%remember to change these!
+	\vspace{1cm}
+	%		{\large Group \@group\unskip\strut\par}
+% 	{\large Group: 42 \hfill CID: 00123456 \hfill Username: j.bloggs\par}		%remember to change these!
+	{\large U201914634 \hfill\par}		%remember to change these!
+	\vspace{1cm}
+	{\large \today\par}
+\end{titlepage}
+
+\newpage
+
+\section{实验目的}
+\begin{itemize}
+    \item 一
+\end{itemize}
+
+\section{实验内容}
+\begin{itemize}
+    \item 一
+    \item 二
+\end{itemize}
+
+\section{程序框图}
+如图所示
+
+
+\section{实验步骤}
+步骤步骤步骤
+
+\section{重点知识}
+\begin{enumerate}
+    \item 一
+    \item 二
+    \item 三
+\end{enumerate}
+
+\section{参考程序}
+
+\section{实验结果}
+\subsection{单步运行各条指令并记录相关寄存器的数值}
+\begin{lstlisting}
+_STACK SEGMENT  	STACK;堆栈段开始
+	       DW 100 DUP(?);定义100个不确定内容的字变量
+_STACK 	ENDS 	 	 ;堆栈段结束
+DATA SEGMENT;数据段开始
+DATA 	ENDS ;数据段结束
+CODE SEGMENT;代码段开始
+\end{lstlisting}
+\subsection{详细注释每一条指令的功能}
+\begin{lstlisting}
+_STACK SEGMENT  	STACK;堆栈段开始
+	       DW 100 DUP(?);定义100个不确定内容的字变量
+_STACK 	ENDS 	 	 ;堆栈段结束
+\end{lstlisting}
+
+\section{思考题}
+\begin{enumerate}
+\item 问题\\
+答: 答案
+\end{enumerate}
+
+\end{document}
