@@ -4,6 +4,33 @@
 %---------------------这里添加所需的package--------------------------------
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+
+\lstset{
+	basicstyle={\ttfamily\footnotesize},
+	keywordstyle={\bfseries\color{NavyBlue}}, % 关键词风格（listing包定义的词，也可手动添加）
+	emph={String,main}, % 设置强调词
+	emphstyle={\bfseries\color{Rhodamine}}, % 强调词风格
+	alsoletter={.},
+	commentstyle={\sffamily\color{PineGreen!50!black}}, % 注释风格
+	stringstyle={\rmfamily\color{Maroon}}, % 字符串风格
+	frame=shadowbox, % 带阴影边框
+	framesep=1em, % 边框距代码距离
+	framerule=1.3pt, % 边框粗细
+	backgroundcolor={\color{lightgray!20!white}}, % 背景颜色
+	rulecolor={\color{CadetBlue}}, % 边框颜色
+	rulesep=3pt, % 阴影大小
+	rulesepcolor={\color{CadetBlue!40!white}}, % 阴影颜色
+	numbers=left, % 行号位置
+	numbersep=2em, % 行号与边框间距
+	numberstyle={\scriptsize\color{darkgray}}, % 行号风格
+	showstringspaces=false, % 不显示字符串内空格
+	showspaces=false, % 不显示空格
+	showtabs=false, % 不显示Tab
+	tabsize=4, % 设置Tab大小
+	breaklines=true, % 自动换行
+}
 
 %--------------------------------------------------------------------------
 \makeatletter
@@ -13,11 +40,11 @@
 %-----------------------------------------------------------------------------
 
 \title{笔记} % 报告主题
-\author{李子奥} % 学生姓名
-\Csupervisor{xxx} % 指导教师姓名
-\CstudentNum{U201914629} % 学号
-\Cmajor{自动化1903} % 专业名称
-\Cschoolname{人工智能与自动化学院} % 学院名
+\author{李 子 奥} % 学生姓名
+\Csupervisor{x x x} % 指导教师姓名
+\CstudentNum{U 2 0 1 9 1 4 6 2 9} % 学号
+\Cmajor{自 动 化 1 9 0 3 班} % 专业名称
+\Cschoolname{人 工 智 能 与 自 动 化 学 院} % 学院名
 \date{\today} % 日期
 
 %-----------------------------------------------------------------------------
@@ -56,6 +83,14 @@ SVM 还可以利用核技巧，从而对非线性的数据进行分类。
 
 将不同类别的样本点完全分到分类平面的两侧，但当有异常样本点出现的时候，硬间隔的 SVM 可能会将异常点作为支撑向量，导致分类平面不佳\cite{r1}...
 
+\begin{lstlisting}[language=c]
+#include <stdio.h>
+int main()
+{
+	printf("Hello, World!");
+	return 0;
+}
+\end{lstlisting}
 
 %此处结束正文-------------------------------------------------------------------------------------------------
 %%%============================================================================================================%%%

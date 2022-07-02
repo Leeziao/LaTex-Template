@@ -39,8 +39,6 @@
 \newtoks\CstudentNum			%学生学号
 
 
-
-
 \pagestyle{fancyplain}
 \fancyhf{}  %清除以前对页眉页脚的设置
 \renewcommand{\headrulewidth}{0pt}
@@ -78,11 +76,11 @@
      \vfill\vfill\vfill
     {\songti\zihao{-2}
     \begin{tabular}{cp{5.5cm}c}
-      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{院\hfill \hfill \hfill 系:}} & {  {}\raisebox{-3ex}[0pt]{\the\Cschoolname}\hfill{}} & \\[3ex]
-      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill 业\hfill 班\hfill 级:}} & { {}\raisebox{-3ex}[0pt]{\the\Cmajor}\hfill{}} & \\[3ex]
-   	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 姓\hfill 名:}} & { {}\raisebox{-3ex}[0pt]{\@author}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 学\hfill 号:}} & { {}\raisebox{-3ex}[0pt]{\the\CstudentNum}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师:}} & { {}\raisebox{-3ex}[0pt]{\the\Csupervisor}\hfill{}} & \\[3ex]
+      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{院\hfill \hfill \hfill 系:}} & {  {}\raisebox{-3ex}[0pt]{\makebox[7cm][s]{\the\Cschoolname}}\hfill{}} & \\[3ex]
+      \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill 业\hfill 班\hfill 级:}} & { {}\raisebox{-3ex}[0pt]{\makebox[7cm][s]{\the\Cmajor}}\hfill{}} & \\[3ex]
+   	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 姓\hfill 名:}} & { {}\raisebox{-3ex}[0pt]{\makebox[7cm][s]{\@author}}\hfill{}} & \\[3ex]
+	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 学\hfill 号:}} & { {}\raisebox{-3ex}[0pt]{\makebox[7cm][s]{\the\CstudentNum}}\hfill{}} & \\[3ex]
+	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师:}} & { {}\raisebox{-3ex}[0pt]{\makebox[7cm][s]{\the\Csupervisor}}\hfill{}} & \\[3ex]
 
      \end{tabular}
     }
@@ -132,7 +130,8 @@
 \RequirePackage{amsmath,amssymb}
 \RequirePackage[amsmath,thmmarks]{ntheorem}% AMSLaTeX宏包.
 \RequirePackage{graphicx}                 % 图形
-\RequirePackage{color,xcolor}             %支持彩色
+\RequirePackage{color}             %支持彩色
+\RequirePackage[dvipsnames]{xcolor}
 %\RequirePackage{mathrsfs}   % 不同于\mathcal or \mathfrak 之类的英文花体字体
 \RequirePackage{url}
 \RequirePackage{enumerate}
