@@ -38,20 +38,43 @@
 \newtoks\CsupervisorAnother        %指导教师二
 \newtoks\CstudentNum			%学生学号
 
-
-\pagestyle{fancyplain}
-\fancyhf{}  %清除以前对页眉页脚的设置
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[C]{-\,\thepage\,-}
-
-
-\fancypagestyle{plain}
-{
-\fancyhead{}                                    % clear all header fields
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot{}                                    % clear all footer fields
-\fancyfoot[C]{\zihao{5}\usefonttimes{-\,\thepage\,-}}
+\renewcommand{\chaptermark}[1]{%
+\markboth{\MakeUppercase{CHAPTER\ \thechapter.\ #1}}{}%
 }
+\renewcommand{\sectionmark}[1]{%
+\markright{\thesection\ #1}
+}
+
+\fancypagestyle{myfancy}{
+\fancyhf{}  %清除以前对页眉页脚的设置
+\fancyhf[CF]{-\hspace{1em}\thepage\hspace{1em}-}
+\fancyhf[LH]{{\ttfamily \leftmark}}
+\fancyhf[RH]{{\ttfamily \rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{1pt}
+}
+
+\fancypagestyle{mybibli}{
+	\fancyhf{}  %清除以前对页眉页脚的设置
+	\fancyhf[CH]{-\hspace{.5em}\textrm{BIBLIOGRAPHY}\hspace{.5em}-}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+%\fancypagestyle{empty}{
+%	\fancyhf{}  %清除以前对页眉页脚的设置
+%}
+%\fancyfoot[C]{-\,\thepage\,-}
+
+%\fancypagestyle{plain}{}
+%\fancypagestyle{fancyplain}
+%{
+%\fancyhead{}                                    % clear all header fields
+%\renewcommand{\headrulewidth}{0pt}
+%\fancyfoot{}                                    % clear all footer fields
+%\fancyfoot[C]{\zihao{5}\usefonttimes{-\,\thepage\,-}}
+%}
+%\fancypagestyle{plain}{}
 
 %%=====封面===================== 
 \def\maketitle{%

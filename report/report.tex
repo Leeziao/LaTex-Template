@@ -1,11 +1,13 @@
 % !Mode:: "TeX:UTF-8"
 %% 请使用 XeLaTeX 编译本文.
- \documentclass[forprint]{report}
+\documentclass[forprint]{report}
 %---------------------这里添加所需的package--------------------------------
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{listings}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
 
 \lstset{
 	basicstyle={\ttfamily\footnotesize},
@@ -36,10 +38,8 @@
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
 \makeatother
-\begin{document}
-%-----------------------------------------------------------------------------
 
-\title{笔记} % 报告主题
+\title{笔 记} % 报告主题
 \author{李 子 奥} % 学生姓名
 \Csupervisor{x x x} % 指导教师姓名
 \CstudentNum{U 2 0 1 9 1 4 6 2 9} % 学号
@@ -47,29 +47,24 @@
 \Cschoolname{人 工 智 能 与 自 动 化 学 院} % 学院名
 \date{\today} % 日期
 
-%-----------------------------------------------------------------------------
+\pagestyle{myfancy}
+\assignpagestyle{\chapter}{myfancy}
 
+\begin{document}
 \pdfbookmark[0]{封面}{title}         % 封面页加到 pdf 书签
 \maketitle
 \frontmatter
 \pagenumbering{Roman}              % 正文之前的页码用大写罗马字母编号.正文之前的页码隐藏，无需显示
-%-----------------------------------------------------------------------------
 %==========================把目录加入到书签==============================%%%%%%
 
 \tableofcontents
 \thispagestyle{empty}				%不显示罗马数字
 \addtocontents{toc}{\protect\thispagestyle{empty}}
 
-
 \mainmatter %% 以下是正文
 %%%%%%%%%%%%%%%%%%%%%%%%%%%--------main matter-------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{plain}%plain
-%\cfoot{\thepage{\zihao{5}\bf\usefonttimes}}
-%\renewcommand{\baselinestretch}{1.6}
-%\setlength{\baselineskip}{23pt}
 \baselineskip=23pt  % 正文行距为 23 磅
 
-%此处书写正文-------------------------------------------------------------------------------------
 \chapter{SVM}
 
 \section{SVM简介}
@@ -92,17 +87,69 @@ int main()
 }
 \end{lstlisting}
 
-%此处结束正文-------------------------------------------------------------------------------------------------
-%%%============================================================================================================%%%
+将不同类别的样本点完全分到分类平面的两侧，但当有异常样本点出现的时候，硬间隔的 SVM 可能会将异常点作为支撑向量，导致分类平面不佳\cite{r1}...
+
+\begin{lstlisting}[language=c]
+	#include <stdio.h>
+	int main()
+	{
+		printf("Hello, World!");
+		return 0;
+	}
+\end{lstlisting}
+
+将不同类别的样本点完全分到分类平面的两侧，但当有异常样本点出现的时候，硬间隔的 SVM 可能会将异常点作为支撑向量，导致分类平面不佳\cite{r1}...
+
+\begin{lstlisting}[language=c]
+	#include <stdio.h>
+	int main()
+	{
+		printf("Hello, World!");
+		return 0;
+	}
+\end{lstlisting}
+
+将不同类别的样本点完全分到分类平面的两侧，但当有异常样本点出现的时候，硬间隔的 SVM 可能会将异常点作为支撑向量，导致分类平面不佳\cite{r1}...
+
+\begin{lstlisting}[language=c]
+	#include <stdio.h>
+	int main()
+	{
+		printf("Hello, World!");
+		return 0;
+	}
+\end{lstlisting}
+
+\chapter{Adaboost}
+	
+What is Adaboost?
+
+
 
 %%%=== 参考文献 ========%%%
+\pagestyle{mybibli}
 \cleardoublepage\phantomsection
 \addcontentsline{toc}{chapter}{参考文献}
 %\bibliography{example}
 \renewcommand{\baselinestretch}{1.6}
 
-\begin{thebibliography}{00}
+\begin{thebibliography}{00}\thispagestyle{mybibli}
 
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
+  \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
   \bibitem{r1} 深入浅出KNN算法（一） KNN算法原理 \url{https://www.cnblogs.com/listenfwind/p/10311496.html}.
 
 \end{thebibliography}
