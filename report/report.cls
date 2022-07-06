@@ -23,6 +23,8 @@
 \fi
 \RequirePackage[top=2.5truecm,bottom=2truecm,left=3truecm,right=3truecm,includefoot,xetex]{geometry}    % 页面设置%
 
+\newtoks\Institute
+\newtoks\Bigtitle
 \newtoks\StudentNumber       %学号
 \newtoks\miji            %密级
 \newtoks\Cmajor          %学科专业中文名
@@ -61,6 +63,13 @@
 	\renewcommand{\footrulewidth}{0pt}
 }
 
+\fancypagestyle{tableofcontents}{
+	\fancyhf{}
+	\fancyhf[HC]{-\hspace{.5em}\textrm{TABLE OF CONTENTS}\hspace{.5em}-}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
 %\fancypagestyle{empty}{
 %	\fancyhf{}  %清除以前对页眉页脚的设置
 %}
@@ -88,11 +97,11 @@
     }
     \par
     \vspace*{0.9cm} %插入空白
-    {\songti \zihao{0} \makebox[9cm][s]{华中科技大学}}\\
+    {\songti \zihao{0} \makebox[11cm][s]{\the\Institute}}\\
     \vspace{0.8cm}
 %    {\songti \zihao{1} \makebox[10cm][s]{人工智能与自动化学院}}\\
 %	\vspace{0.8cm}
-	{\songti \zihao{1} \makebox[9cm][s]{xxxx课堂笔记}}\\
+	{\songti \zihao{1} \makebox[9cm][s]{\the\Bigtitle}}\\
     \vspace{2.0cm}
     {\heiti \zihao{2} \@title \par}%
 %    \vspace{4.2cm}
