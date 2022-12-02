@@ -1,5 +1,6 @@
-\documentclass[9pt,UTF8]{ctexbeamer} 
+\documentclass[8pt,UTF8]{ctexbeamer} 
 %默认字体12pt，编码使用UTF8，使用中文
+\usepackage[fontsize=8pt]{fontsize}
 
 \usetheme[progressbar=frametitle]{metropolis} 
 %使用metropolis这一beamer主题
@@ -33,21 +34,29 @@
 
 \usepackage{xspace} %断行命令
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+\usepackage{lstlinebgrd}
 
 \lstset{
-	basicstyle=\small,
+	basicstyle=\ttfamily\tiny,
+	frame=shadowbox,
 	numbers=left,
-	frame=single,
-	backgroundcolor=\color[RGB]{245,245,244},
-	keywordstyle=\color[RGB]{40,40,255},
-	numberstyle=\footnotesize\color{darkgray},
-	commentstyle=\it\color[RGB]{0,96,96},
-	stepnumber=2,
-	breaklines=true,
-	stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
 	showstringspaces=false,
+	showtabs=false,
+	showspaces=false,
+	keepspaces=true,
+	backgroundcolor=\color{white},
+	keywordstyle=\ttfamily\color[RGB]{40,40,255},
+	emphstyle=\ttfamily\color[RGB]{40,40,255},
+	numberstyle=\ttfamily\color{darkgray},
+	commentstyle=\it\ttfamily\color[RGB]{0,96,96},
+	stringstyle=\slshape\ttfamily\color[RGB]{128,0,0},
+	language=python,
+	breaklines=true,
+	breakindent=30pt,
+	tabsize=2,
+	morekeywords={love,gettrace,settrace,parse,process,int32_t},
+	linebackgroundcolor=\color{white},
 }
-
 
 \title{Metropolis} %标题
 \subtitle{一个优秀的beamer主题} %副标题
@@ -74,6 +83,41 @@
 	%             自动实现对section的收集，并绘制成目录页
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents%[hideallsubsections]
+\end{frame}
+
+\begin{frame}[fragile]{Source Code Analysis}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+	\changefontsize[8pt]{8pt}
+	\lstinputlisting[language=c++,
+		title=Source Code,
+		linebackgroundcolor={%
+			\ifnum\value{lstnumber}>5
+				\ifnum\value{lstnumber}<14
+					\color{green!35}
+				\else
+					\color{white}
+				\fi
+			\else
+				\color{white}
+			\fi}
+	]{source.cpp}
+    % \column{0.05\textwidth}
+    \column{0.45\textwidth}
+	\changefontsize[6pt]{6pt}
+	\noindent 这个循环中有两个变量会在后续过程中用到：
+	\begin{itemize}
+		\item \texttt{i}:表示输入字符串的长度
+		\item \texttt{quoteNum}:表示输入中 \small{Quote Character} 出现的次数
+	\end{itemize}
+	跳出循环的条件为：
+	\begin{itemize}
+		\item 遇到字符\texttt{'\textbackslash 0'}
+		\item 最大循环次数\texttt{k}从\texttt{0xffff\_ffff}递减到0，表示已经遇到了\texttt{0xffff\_ffff}个单词（unicode字符）。
+	\end{itemize}
+	\pause
+	\texttt{i}是一个32位的带符号变量，当输入字符串的长度大于\texttt{0x7fff\_ffff}时，\texttt{i}会发生溢出。
+  \end{columns}
 \end{frame}
 
 \section{What is beamer？}
