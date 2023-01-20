@@ -62,8 +62,13 @@
 \subtitle{一个优秀的beamer主题} %副标题
 \date{\today} %今天的日期
 \author{李子奥 \hspace{2em} \href{mailto: leeziao0331@gmail.com}{leeziao0331@gmail.com}} %作者
+% \author{Lee ZiAo \hspace{2em} \href{mailto: leeziao0331@gmail.com}{leeziao0331@gmail.com}} %作者
 \institute{华中科技大学 \hspace{4em} 人工智能与自动化学院} %机构
+% \institute{HuaZhong University of Science and Technology \hspace{4em} School of Artificial Intelligence and Automation} %机构
 \titlegraphic{\hfill\includegraphics[height=2.5cm]{image/academic.png}} %插入logo
+
+\newcommand{\iitem}[2]{\item \textbf{#1:} #2}
+\newcommand{\headline}[1]{\centerline{\Large #1}}
 
 %在每个section 前边单独插入当前章节高亮的目录页（当然最原始的目录页你还是需要手动录入的，不要想偷懒）
 %\AtBeginSection[]
@@ -83,6 +88,14 @@
 	%             自动实现对section的收集，并绘制成目录页
   \setbeamertemplate{section in toc}[sections numbered]
   \tableofcontents%[hideallsubsections]
+\end{frame}
+
+\begin{frame}{First Frame}
+	\headline{Title of First Frame}
+	\begin{itemize}
+		\iitem{Item1}{Content1}
+		\iitem{Item2}{Content2}
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Source Code Analysis}
