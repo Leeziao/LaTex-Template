@@ -1,0 +1,84 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lzaBeamerTheme}[2022/02/21 My Beamer Theme]
+
+\RequirePackage{xcolor}
+\RequirePackage{pgf}
+\RequirePackage{graphicx}
+\RequirePackage{listings}
+\RequirePackage{fontsize}
+
+% ------------- Setup beamer ------------------ %
+\usecolortheme[RGB={37,85,122}]{structure}
+\usecolortheme{orchid}
+
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortdate
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.435\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+   \begin{beamercolorbox}[wd=0.065\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{frametitle}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+
+\AtBeginSection[]{
+	\begin{frame}
+	\vfill
+	\centering
+	\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+		\usebeamerfont{title}\insertsectionhead\par%
+	\end{beamercolorbox}
+	\vfill
+	\end{frame}
+}
+% ------------- End   beamer ------------------ %
+
+% ------------- Setup listings ------------------ %
+\lstset{
+	basicstyle={\ttfamily\tiny},
+	keywordstyle={\bfseries}, % 关键词风格（listing包定义的词，也可手动添加）
+	emph={String,main}, % 设置强调词
+	emphstyle={\bfseries}, % 强调词风格
+	alsoletter={.},
+	commentstyle={\sffamily}, % 注释风格
+	stringstyle={\rmfamily}, % 字符串风格
+	frame=shadowbox, % 带阴影边框
+	framesep=1em, % 边框距代码距离
+	framerule=1.3pt, % 边框粗细
+	backgroundcolor={\color{block title.bg!10!bg}}, % 背景颜色
+	rulecolor={\color{structure.fg!80!black}}, % 边框颜色
+	rulesep=2pt, % 阴影大小
+	rulesepcolor={\color{structure.fg!40!white}}, % 阴影颜色
+	numbers=left, % 行号位置
+	numbersep=2em, % 行号与边框间距
+	numberstyle={\tiny\color{structure.fg!20!black}}, % 行号风格
+	showstringspaces=false, % 不显示字符串内空格
+	showspaces=false, % 不显示空格
+	showtabs=false, % 不显示Tab**
+	tabsize=4, % 设置Tab大小
+	breaklines=true, % 自动换行
+}
+% ------------- End   listings ------------------ %
+
+% ------------- Setup graphicx ------------------ %
+\DeclareGraphicsExtensions{.eps,.pdf,.jpg,.png}
+\graphicspath{{figures/}{figure/}{pictures/}%
+	{picture/}{pic/}{pics/}{image/}{images/}}
+% ------------- End   graphicx ------------------ %
+
+% ------------- Setup commands ------------------ %
+\newcommand{\iitem}[2]{\item \textbf{#1:} #2}
+\newcommand{\headline}[1]{\centerline{\Large #1}\vskip 2ex}
+\newcommand{\sepline}{\vskip 1ex \hrule \vskip 1ex}
+% ------------- End   commands ------------------ %
